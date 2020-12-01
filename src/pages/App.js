@@ -184,7 +184,7 @@ class App extends React.Component {
         />
         <div className={classNames(classes.container, !navDrawerOpen && classes.containerFull)}>
           <Switch>
-            <Route exact path="/" component={DataTable} />
+            <Route exact path="/" component={Dashboard} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/form" component={Form} />
             <Route path="/table/basic" component={BasicTable} />

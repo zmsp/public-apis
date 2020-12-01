@@ -1,5 +1,5 @@
 {
-  "name": "Public API Portal",
+  "name": "public-api-portal",
   "version": "4.0.0",
   "dependencies": {
     "@material-ui/core": "^4.5.0",
@@ -44,5 +44,5 @@
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2"
   },
-  "homepage": "./"
+  "homepage": "http://zmsp.github.io/public-apis/"
 }
