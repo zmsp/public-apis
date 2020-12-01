@@ -1,5 +1,5 @@
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import { blue, grey, pink, red, deepOrange, orange, teal, green, amber, lime, purple } from "@material-ui/core/colors";
+import {amber, blue, deepOrange, green, grey, lime, orange, pink, purple, red, teal} from "@material-ui/core/colors";
 
 export const availableThemes = [
   {
