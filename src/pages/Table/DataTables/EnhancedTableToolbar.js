@@ -1,15 +1,16 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
-import DeleteIcon from "@material-ui/icons/Delete";
+
 import FilterListIcon from "@material-ui/icons/FilterList";
-import { lighten } from "@material-ui/core/styles/colorManipulator";
+import {lighten} from "@material-ui/core/styles/colorManipulator";
+import {ImportExport} from "@material-ui/icons";
 
 const toolbarStyles = theme => ({
   root: {
@@ -59,9 +60,9 @@ let EnhancedTableToolbar = props => {
       <div className={classes.spacer} />
       <div className={classes.actions}>
         {numSelected > 0 ? (
-          <Tooltip title="Delete">
+          <Tooltip title="Export">
             <IconButton aria-label="Delete">
-              <DeleteIcon />
+              <ImportExport />
             </IconButton>
           </Tooltip>
         ) : (

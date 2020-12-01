@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import ContentAdd from "@material-ui/icons/Add";
 import Grid from "@material-ui/core/Grid";
 import SimpleTable from "./BasicTables/SimpleTable";

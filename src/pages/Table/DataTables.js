@@ -1,20 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import ContentCreate from "@material-ui/icons/Create";
+import ContentCreate from "@material-ui/icons/Link";
 
 import EnhancedTableHead from "./DataTables/EnhancedTableHead";
 import EnhancedTableToolbar from "./DataTables/EnhancedTableToolbar";
-import tableData from "../../data";
 
 const desc = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -56,14 +53,47 @@ const styles = theme => ({
 });
 
 class EnhancedTable extends React.Component {
+
+  constructor(props){
+    super(props);
+
+
+  };
   state = {
     order: "asc",
     orderBy: "id",
     selected: [],
-    data: tableData.tablePage.items,
+    data: [],
+    category: this.props.match.params.handle,
+    // data2: null,
     page: 0,
-    rowsPerPage: 15
+    rowsPerPage: 10
   };
+
+
+
+  componentWillMount(){
+
+
+    var url = "https://api.publicapis.org/entries";
+    console.log(this.state.category);
+    if (this.state.category){
+      url  = "https://api.publicapis.org/entries?category="+this.state.category;
+    }
+    fetch(url)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          // console.log(responseJson.entries );
+          // console.log(responseJson.entries[0].API)
+
+          this.setState({ data : responseJson.entries })
+          // console.log(this.state.entries.entries)
+
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+  }
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -78,7 +108,7 @@ class EnhancedTable extends React.Component {
 
   handleSelectAllClick = event => {
     if (event.target.checked) {
-      this.setState(state => ({ selected: state.data.map(n => n.id) }));
+      this.setState(state => ({ selected: state.data.map(n => n.API) }));
       return;
     }
     this.setState({ selected: [] });
@@ -115,6 +145,7 @@ class EnhancedTable extends React.Component {
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
+
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
@@ -138,20 +169,26 @@ class EnhancedTable extends React.Component {
               {stableSort(data, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(n => {
-                  const isSelected = this.isSelected(n.id);
+                  const isSelected = this.isSelected(n.API);
                   return (
                     <TableRow
                       hover
-                      onClick={event => this.handleClick(event, n.id)}
+                      onClick={event => this.handleClick(event, n.API)}
                       role="checkbox"
                       aria-checked={isSelected}
                       tabIndex={-1}
-                      key={n.id}
+                      key={n.API}
                       selected={isSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox checked={isSelected} />
-                      </TableCell>
+                    >   <TableCell>
+                      <a href={n.Link} target="_blank">
+                        <Button mini={true} variant="fab" zDepth={0}>
+                          <ContentCreate />
+                        </Button>
+                      </a>
+                    </TableCell>
+                      {/*<TableCell padding="checkbox">*/}
+                      {/*  <Checkbox checked={isSelected} />*/}
+                      {/*</TableCell>*/}
                       {/* <TableCell component="th" scope="row" padding="none">
                         {n.name}
                       </TableCell>
@@ -159,17 +196,15 @@ class EnhancedTable extends React.Component {
                       <TableCell align="right">{n.fat}</TableCell>
                       <TableCell align="right">{n.carbs}</TableCell>
                       <TableCell align="right">{n.protein}</TableCell> */}
-                      <TableCell>{n.id}</TableCell>
-                      <TableCell>{n.name}</TableCell>
-                      <TableCell>{n.price}</TableCell>
-                      <TableCell>{n.category}</TableCell>
-                      <TableCell>
-                        <Link className="button" to="/form">
-                          <Button mini={true} variant="fab" zDepth={0}>
-                            <ContentCreate />
-                          </Button>
-                        </Link>
-                      </TableCell>
+
+                      <TableCell>{n.API}</TableCell>
+                      <TableCell>{n.Description}</TableCell>
+                      <TableCell>{n.Link}</TableCell>
+                      <TableCell>{n.Auth}</TableCell>
+                      <TableCell>{n.HTTPS? 'On' : 'Off'}</TableCell>
+                      <TableCell>{n.Cors}</TableCell>
+                      <TableCell>{n.Category}</TableCell>
+
                     </TableRow>
                   );
                 })}

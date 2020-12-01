@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
-import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
+import {Pie, PieChart, ResponsiveContainer, Tooltip} from "recharts";
 import GlobalStyles from "../../styles.scss";
-import { orange } from "@material-ui/core/colors";
+import {orange} from "@material-ui/core/colors";
 
 const BrowserUsage = props => {
   const styles = {

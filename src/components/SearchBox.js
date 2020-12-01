@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import { white, blue } from "@material-ui/core/colors";
+import {blue, white} from "@material-ui/core/colors";
 import IconButton from "@material-ui/core/IconButton";
 import Search from "@material-ui/icons/Search";
 

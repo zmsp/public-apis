@@ -2,33 +2,32 @@ import React from "react";
 import Faker from "faker";
 import Assessment from "@material-ui/icons/Assessment";
 import GridOn from "@material-ui/icons/GridOn";
-import PermIdentity from "@material-ui/icons/PermIdentity";
 import Web from "@material-ui/icons/Web";
 import BorderClear from "@material-ui/icons/BorderClear";
 import BorderOuter from "@material-ui/icons/BorderOuter";
 
 const data = {
   menus: [
-    { text: "DashBoard", icon: <Assessment />, link: "/dashboard" },
-    { text: "Form Page", icon: <Web />, link: "/form" },
+    { text: "Dashboard", icon: <Assessment />, link: "/dashboard" },
+    { text: "API List", icon: <Web />, link: "/table/data" },
     {
-      text: "Table Page",
+      text: "Categories",
       icon: <GridOn />,
       // link: "/table",
       subMenus: [
         {
-          text: "Basic Table",
+          text: "Animals",
           icon: <BorderClear />,
           link: "/table/basic"
         },
         {
-          text: "Data Table",
+          text: "TODO",
           icon: <BorderOuter />,
           link: "/table/data"
         }
       ]
     },
-    { text: "Login Page", icon: <PermIdentity />, link: "/login" }
+
   ],
   user: {
     userName: `${Faker.name.firstName()} ${Faker.name.lastName()}`,

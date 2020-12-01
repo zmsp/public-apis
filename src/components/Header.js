@@ -6,15 +6,12 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import InputBase from "@material-ui/core/InputBase"
 import SearchIcon from "@material-ui/icons/Search"
-import GitHub from "@material-ui/icons/GitHub"
-import AccountCircle from "@material-ui/icons/AccountCircle"
-import MailIcon from "@material-ui/icons/Mail"
-import NotificationsIcon from "@material-ui/icons/Notifications"
+import Info from "@material-ui/icons/Info"
+import Code from "@material-ui/icons/Code"
 import MoreIcon from "@material-ui/icons/MoreVert"
-import Badge from "@material-ui/core/Badge"
-import { Toolbar } from "@material-ui/core"
-import { fade } from "@material-ui/core/styles/colorManipulator"
-import { withStyles } from "@material-ui/core/styles"
+import {Toolbar} from "@material-ui/core"
+import {fade} from "@material-ui/core/styles/colorManipulator"
+import {withStyles} from "@material-ui/core/styles"
 
 const styles = (theme) => ({
   appBar: {
@@ -99,11 +96,11 @@ const styles = (theme) => ({
       display: "none",
     },
   },
-})
+});
 
 class Header extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       anchorEl: null,
@@ -113,26 +110,26 @@ class Header extends React.Component {
 
   handleProfileMenuOpen = (event) => {
     this.setState({ anchorEl: event.currentTarget })
-  }
+  };
 
   handleMenuClose = () => {
-    this.setState({ anchorEl: null })
+    this.setState({ anchorEl: null });
     this.handleMobileMenuClose()
-  }
+  };
 
   handleMobileMenuOpen = (event) => {
     this.setState({ mobileMoreAnchorEl: event.currentTarget })
-  }
+  };
 
   handleMobileMenuClose = () => {
     this.setState({ mobileMoreAnchorEl: null })
-  }
+  };
 
   render() {
-    const { handleChangeNavDrawer, classes, navDrawerOpen } = this.props
+    const { handleChangeNavDrawer, classes, navDrawerOpen } = this.props;
 
-    const { anchorEl } = this.state
-    const isMenuOpen = Boolean(anchorEl)
+    const { anchorEl } = this.state;
+    const isMenuOpen = Boolean(anchorEl);
     // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     // const renderMenu = (
@@ -210,7 +207,7 @@ class Header extends React.Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder="TODO Search"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
@@ -219,41 +216,25 @@ class Header extends React.Component {
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge
-                  className={classes.margin}
-                  badgeContent={4}
-                  color="secondary"
-                >
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton color="inherit">
-                <Badge
-                  className={classes.margin}
-                  badgeContent={17}
-                  color="secondary"
-                >
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
               <IconButton
-                aria-owns={isMenuOpen ? "material-appbar" : null}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
-                color="inherit"
+                  aria-owns={isMenuOpen ? "material-appbar" : null}
+                  aria-haspopup="true"
+                  onClick={() =>
+                      window.open("https://api.publicapis.org/")
+                  }
+                  color="inherit"
               >
-                <AccountCircle />
+                <Info />
               </IconButton>
               <IconButton
                 aria-owns={isMenuOpen ? "material-appbar" : null}
                 aria-haspopup="true"
                 onClick={() =>
-                  window.open("https://github.com/hanyuei/react-material-admin")
+                  window.open("https://github.com/zmsp/react-open-api-portal")
                 }
                 color="inherit"
               >
-                <GitHub />
+                <Code />
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
@@ -277,6 +258,6 @@ Header.propTypes = {
   handleChangeNavDrawer: PropTypes.func,
   classes: PropTypes.object,
   navDrawerOpen: PropTypes.bool,
-}
+};
 
 export default withStyles(styles)(Header)

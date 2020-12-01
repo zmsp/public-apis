@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
-import { fade } from "@material-ui/core/styles/colorManipulator";
+import {fade} from "@material-ui/core/styles/colorManipulator";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 

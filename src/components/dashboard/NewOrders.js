@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
-import { LineChart, Line, ResponsiveContainer } from "recharts";
-import { withStyles } from "@material-ui/core/styles";
+import {Line, LineChart, ResponsiveContainer} from "recharts";
+import {withStyles} from "@material-ui/core/styles";
 
 const NewOrders = ({ data, theme }) => {
   const styles = {

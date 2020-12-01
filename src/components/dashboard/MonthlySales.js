@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
-import { BarChart, Bar, ResponsiveContainer, XAxis } from "recharts";
+import {Bar, BarChart, ResponsiveContainer, XAxis} from "recharts";
 import GlobalStyles from "../../styles.scss";
 
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 
 const MonthlySales = ({ data, theme }) => {
   const styles = {

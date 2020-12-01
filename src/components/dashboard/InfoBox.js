@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CountUp from "react-countup";
 import Paper from "@material-ui/core/Paper";
-import { grey } from "@material-ui/core/colors";
+import {grey} from "@material-ui/core/colors";
 
 class InfoBox extends React.Component {
   render() {

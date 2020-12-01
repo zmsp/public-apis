@@ -9,17 +9,21 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 const rows = [
   {
-    id: "id",
-    numeric: true,
+    id: "API",
+    numeric: false,
     disablePadding: true,
-    label: "Id"
+    label: "API"
   },
-  { id: "name", numeric: false, disablePadding: false, label: "Name" },
-  { id: "price", numeric: true, disablePadding: false, label: "Price ($)" },
-  { id: "category", numeric: false, disablePadding: false, label: "Category" }
-];
+  { id: "Description", numeric: false, disablePadding: false, label: "Description" },
+  { id: "link", Link: true, disablePadding: false, label: "Link" },
+  { id: "Auth", numeric: false, disablePadding: false, label: "Auth" },
+  { id: "HTTPS", numeric: false, disablePadding: false, label: "HTTPS" },
+  { id: "CORS", numeric: false, disablePadding: false, label: "CORS" },
+  { id: "Category", numeric: false, disablePadding: false, label: "Category" }
 
+];
 class EnhancedTableHead extends React.Component {
+
   createSortHandler = property => event => {
     this.props.onRequestSort(event, property);
   };

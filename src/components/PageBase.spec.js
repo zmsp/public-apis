@@ -1,9 +1,9 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { expect } from "chai";
+import {configure, shallow} from "enzyme";
+import {expect} from "chai";
 import PageBase from "./PageBase";
-import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+
 configure({ adapter: new Adapter() });
 
 describe("<PageBase />", () => {
